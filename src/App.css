@@ -1,0 +1,24 @@
+.appContainer{
+  display: flex;
+}
+.content{
+  width: 100%;
+}
+.sidebar{
+  min-height: 600px;
+}
+.postCard{
+  margin: 20px 50px;
+}
+.hastag{
+  margin: 0px 3px;
+}
+.reactions{
+  width: 100%;
+ margin: 15px 0 0 0;
+}
+.createPost{
+  width: 70%;
+  margin: auto;
+  margin-top: 15px;
+}

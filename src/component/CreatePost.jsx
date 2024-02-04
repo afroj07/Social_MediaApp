@@ -17,11 +17,11 @@ const CreatePost = () => {
     const body = bodyElement.current.value;
     const reactions = reactionsElement.current.value;
     const tags = tagsElement.current.value.split(",");
-    // userIdElement.current.value = "";
-    // titleElement.current.value = "";
-    // bodyElement.current.value = "";
-    // reactionsElement.current.value = "";
-    // tagsElement.current.value = "";
+    userIdElement.current.value = "";
+    titleElement.current.value = "";
+    bodyElement.current.value = "";
+    reactionsElement.current.value = "";
+    tagsElement.current.value = "";
 
     fetch("https://dummyjson.com/posts/add", {
       method: "POST",

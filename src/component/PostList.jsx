@@ -5,25 +5,7 @@ import WelcomeMsg from "./WelcomeMsg";
 import LoadingPage from "./LoadingPage";
 
 const PostList = () => {
-  const { postList, addInitialPosts } = useContext(PostListData);
-  const controller = new AbortController();
-  const signal = controller.signal;
-  const [fetching, setfetching] = useState(false);
-
-  useEffect(() => {
-    setfetching(true);
-    fetch("https://dummyjson.com/posts", signal)
-      .then((res) => res.json())
-      .then((data) => {
-        addInitialPosts(data.posts);
-        setfetching(false);
-      });
-
-    return () => {
-      //console.log("Cleaning up useEffect");
-      controller.abort();
-    };
-  }, []);
+  const { postList, fetching } = useContext(PostListData);
 
   return (
     <>

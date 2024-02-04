@@ -16,14 +16,31 @@ const CreatePost = () => {
     const title = titleElement.current.value;
     const body = bodyElement.current.value;
     const reactions = reactionsElement.current.value;
-    const tags = [tagsElement.current.value];
-    userIdElement.current.value = "";
-    titleElement.current.value = "";
-    bodyElement.current.value = "";
-    reactionsElement.current.value = "";
-    tagsElement.current.value = "";
-    addPost(userId, title, body, reactions, tags);
-    alert("Post added successfuly");
+    const tags = tagsElement.current.value.split(",");
+    // userIdElement.current.value = "";
+    // titleElement.current.value = "";
+    // bodyElement.current.value = "";
+    // reactionsElement.current.value = "";
+    // tagsElement.current.value = "";
+
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: title,
+        userId: userId,
+        body: body,
+        reactions: reactions,
+        tags: tags,
+      }),
+    })
+      .then((res) => res.json())
+      .then((post) => {
+        //console.log(post);
+        addPost(post);
+      });
+
+    //alert("Post added successfuly");
   };
 
   return (
